@@ -41,11 +41,11 @@
     <a href="https://suwung-inc.github.io"><strong>:see_no_evil: SUWUNG :see_no_evil:</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo">View Demo</a>
+    <a href="https://suwung-inc.github.io/WebBased-AR-Interactive-BioEducation-App/">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo/issues">Report Bug</a>
+    <a href="suwung-inc/WebBased-AR-Interactive-BioEducation-App/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo/issues">Request Feature</a>
+    <a href="suwung-inc/WebBased-AR-Interactive-BioEducation-App/issues">Request Feature</a>
   </p>
 </p>
 
