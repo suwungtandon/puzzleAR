@@ -38,7 +38,7 @@
   <p align="center">
     Interactive AR Skeleton
     <br />
-    <a href="https://github.com/github_username/repo"><strong>Explore the docs »</strong></a>
+    <a href="https://suwung-inc.github.io"><strong>:see_no_evil: SUWUNG :see_no_evil:</strong></a>
     <br />
     <br />
     <a href="https://github.com/github_username/repo">View Demo</a>
