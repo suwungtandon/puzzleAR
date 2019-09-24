@@ -37,6 +37,11 @@
          START   
        </button>
     </div> 
+    <div class="footer">
+      <footer>
+        <p> Made with 🖤 SuwungTandon </p>
+        <p> ©️ 2015-TillEnd </p>
+      </footer>
     
     <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
         <a-assets>
@@ -152,21 +157,14 @@
           </a-entity>
       </a-marker>
 
-
       <a-entity camera></a-entity>
     </a-scene>
     
-    <div class="footer">
-      <footer>
-        <p> Made with 🖤 SuwungTandon </p>
-        <p> ©️ 2015-TillEnd </p>
-      </footer>
+    
     
     <script>
       const overlay = document.querySelector(".overlay");
       const startBtn = overlay.querySelector("button");
-      const startFooter = overlay.querySelector("footer");
-      
       console.log(startBtn);
       startBtn.addEventListener("click", function(){
         overlay.style.display = "none";    
