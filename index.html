@@ -144,6 +144,14 @@
 
       <a-entity camera></a-entity>
     </a-scene>
+    <script>
+      const overlay = document.querySelector(".overlay");
+      const startBtn = overlay.querySelector("button");
+      console.log(startBtn);
+      startBtn.addEventListener("click", function(){
+        overlay.style.display = "none";    
+      });
+    </script>
   </body>
 
 </html>
