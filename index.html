@@ -19,6 +19,15 @@
       top: 0;
       left: 0;
     }
+    .footer {
+       position: fixed;
+       left: 0;
+       bottom: 0;
+       width: 100%;
+       background-color: blue;
+       color: white;
+       text-align: center;
+    }
   </style>
   <body style='margin : 0px; overflow: hidden;'>
     <div class="overlay">
@@ -144,6 +153,11 @@
 
       <a-entity camera></a-entity>
     </a-scene>
+    
+    <div class="footer">
+      <p>Made with ❤️ SuwungTandon ©️2015-TillEnd</p>
+    </div>
+    
     <script>
       const overlay = document.querySelector(".overlay");
       const startBtn = overlay.querySelector("button");
