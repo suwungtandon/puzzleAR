@@ -7,11 +7,7 @@
   </head>
 
   <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <style>
     .overlay {
@@ -29,6 +25,7 @@
        left: 0;
        bottom: 0;
        width: 100%;
+      display: block;
        background-color: #3498db;
        font-family: Arial Rounded MT Bold;
        color: #ffffff;
@@ -37,13 +34,6 @@
     }
   </style>
   <body style='margin : 0px; overflow: hidden;'>
-    <div class="card" style="width:100px">
-    <img class="card-img-center" src="img_avatar1.png" alt="Card image" style="width:100%">
-    <div class="card-body">
-      <h4 class="card-title">John Doe</h4>
-      <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
-    </div>
-  </div>
  
     <div>
        <button>
@@ -53,8 +43,8 @@
     
     <div class="footer">
       <footer>
-        <p> Made with 🖤 SuwungTandon </p>
-        <p> ©️ 2015-TillEnd </p>
+        <a> Made with 🖤 SuwungTandon </a>
+        <a> ©️ 2015-TillEnd </a>
       </footer>
     
     <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
@@ -185,9 +175,7 @@
         overlay.style.display = "none";
       });
     </script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
   </body>
 
 </html>
