@@ -1,123 +1,7 @@
-=gradient
-  background: -webkit-gradient(linear, left top, right top, from(var(--purple)), to(var(--pink)))
-  background: -webkit-linear-gradient(left, var(--purple), var(--pink))
-  background: -o-linear-gradient(left, var(--purple), var(--pink))
-  background: linear-gradient(to right, var(--purple), var(--pink))
-
-=blur($radius)
-  -webkit-filter: $radius
-  -moz-filter: $radius
-  -o-filter: $radius
-  -ms-filter: $radius
-  filter: $radius
-
-=transition($properties)
-  -webkit-transition: $properties
-  -o-transition: $properties
-  transition: $properties
-// END MIXINS //
-
-html, :root
-  --purple: #7f00ff
-  --pink: #e100ff
-
-
-body, html
-  width: 100%
-  height: 100%
-  display: flex
-  justify-content: center
-  align-items: center
-
-button
-  font-family: 'Roboto', sans-serif
-  font-size: 16px
-  position: relative
-  outline: none
-  border: none
-  -webkit-appearance: none
-  -webkit-tap-highlight-color: transparent
-  cursor: pointer
-  -webkit-user-select: none
-  -moz-user-select: none
-  -ms-user-select: none
-  user-select: none
-  padding: 0.75em 1.75em
-  border-radius: 50px
-  display: inline-block
-  color: #fff
-  +gradient
-  &::after
-    content: ''
-    position: absolute
-    z-index: -1
-    bottom: -10px
-    left: 5%
-    height: 110%
-    width: 90%
-    opacity: .8
-    border-radius: 50px
-    background: inherit
-    +blur(blur(6px))
-    +transition(all .2s)
-  &:hover
-    &::after
-      +blur(blur(4px))
-      width: 100%
-      bottom: -5px
-      left: 0
-    &:active
-      &::after
-        +blur(blur(10px))
-
-
-// FIX For Adge and IE
-
-@supports (-ms-ime-align: auto)
-  button
-    -webkit-box-shadow: 0 20px 20px -15px rgba(127, 0, 255, .8)
-    box-shadow: 0 20px 20px -15px rgba(127, 0, 255, .8)
-  button::after, button:hover::after, button:active::after
-    display: none
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
-  button
-    background: -webkit-gradient(linear, left top, right top, from(#7f00ff), to(#e100ff))
-    background: linear-gradient(to right, #7f00ff, #e100ff)
-    -webkit-box-shadow: 0 20px 20px -15px rgba(127, 0, 255, .8)
-    box-shadow: 0 20px 20px -15px rgba(127, 0, 255, .8)
-    border-collapse: separate
-  button::after, button:hover::after, button:active::after
-    display: none
-
-
-// Gist + img
-.gist
-  position: fixed
-  bottom: 0
-  right: 0
-  background: #282828
-  color: white
-  padding: .5em
-  border-radius: 4px
-  margin: 10px
-  font-size: .75em
-  font-family: 'Roboto', sans-serif
-
-.shadow-image
-  position: fixed
-  bottom: 0
-  right: 0
-  background: #282828
-  color: white
-  padding: .5em
-  border-radius: 4px
-  margin: 10px 80px 10px
-  font-size: .75em
-  font-family: 'Roboto', sans-serif
 
 .overlay button {
-      /*background: #3498db;*/
+
+  /*background: #3498db;*/
       background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
       background-image: -moz-linear-gradient(top, #3498db, #2980b9);
       background-image: -ms-linear-gradient(top, #3498db, #2980b9);
@@ -134,6 +18,107 @@ button
       text-decoration: none;
       margin-top: 200px;
     }
+
+:root {
+  --purple: #7f00ff;
+  --pink: #e100ff;
+}
+button {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  position: relative;
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  padding: 0.75em 1.75em;
+  border-radius: 50px;
+  display: inline-block;
+  color: #fff;
+  
+  /* Our gradient */
+  background: -webkit-gradient(linear, left top, right top, from(var(--purple)), to(var(--pink)));
+  background: linear-gradient(to right, var(--purple), var(--pink));
+}
+button::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  bottom: -10px;
+  left: 5%;
+  height: 110%;
+  width: 90%;
+  opacity: 0.8;
+  border-radius: 50px;
+  
+  /* Declaring our shadow color inherit from the parent (button) */
+  background: inherit;
+  
+  /* Blurring the element for shadow effect */
+  -webkit-filter: blur(6px);
+  -moz-filter: blur(6px);
+  -o-filter: blur(6px);
+  -ms-filter: blur(6px);
+  filter: blur(6px);
+  
+  /* Transition for the magic */
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+button:hover::after {
+  /* Changing blur effect */
+  -webkit-filter: blur(4px);
+  -moz-filter: blur(4px);
+  -o-filter: blur(4px);
+  -ms-filter: blur(4px);
+  filter: blur(4px);
+
+  /* And change the style properties */
+  width: 100%;
+  bottom: -5px;
+  left: 0;
+}
+button:hover:active::after {
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+}
+/* Edge does not support blur effect, so we can just delete the ::after element and replace it by a box-shadow */
+
+@supports (-ms-ime-align: auto) {
+  button {
+    -webkit-box-shadow: 0 20px 20px -15px rgba(127, 0, 255, .8);
+    box-shadow: 0 20px 20px -15px rgba(127, 0, 255, .8);
+}
+  button::after, button:hover::after, button:active::after {
+    display: none;
+  }
+}
+
+
+/* And IE does not support CSS variables and blur effect, so we had to make the same and recreate the background-gradient */
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  /* Fix css var by calling the hexa colors */
+  button {
+    background: -webkit-gradient(linear, left top, right top, from(#7f00ff), to(#e100ff));
+    background: linear-gradient(to right, #7f00ff, #e100ff);
+    -webkit-box-shadow: 0 20px 20px -15px rgba(127, 0, 255, .8);
+    box-shadow: 0 20px 20px -15px rgba(127, 0, 255, .8);
+    border-collapse: separate;
+  }
+  /* Deleting the shadow */
+  button::after, button:hover::after, button:active::after {
+    display: none;
+  }
+}
 
 
 .overlay footer {
