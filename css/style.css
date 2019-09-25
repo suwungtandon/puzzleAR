@@ -1,3 +1,121 @@
+=gradient
+  background: -webkit-gradient(linear, left top, right top, from(var(--purple)), to(var(--pink)))
+  background: -webkit-linear-gradient(left, var(--purple), var(--pink))
+  background: -o-linear-gradient(left, var(--purple), var(--pink))
+  background: linear-gradient(to right, var(--purple), var(--pink))
+
+=blur($radius)
+  -webkit-filter: $radius
+  -moz-filter: $radius
+  -o-filter: $radius
+  -ms-filter: $radius
+  filter: $radius
+
+=transition($properties)
+  -webkit-transition: $properties
+  -o-transition: $properties
+  transition: $properties
+// END MIXINS //
+
+html, :root
+  --purple: #7f00ff
+  --pink: #e100ff
+
+
+body, html
+  width: 100%
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+
+button
+  font-family: 'Roboto', sans-serif
+  font-size: 16px
+  position: relative
+  outline: none
+  border: none
+  -webkit-appearance: none
+  -webkit-tap-highlight-color: transparent
+  cursor: pointer
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+  padding: 0.75em 1.75em
+  border-radius: 50px
+  display: inline-block
+  color: #fff
+  +gradient
+  &::after
+    content: ''
+    position: absolute
+    z-index: -1
+    bottom: -10px
+    left: 5%
+    height: 110%
+    width: 90%
+    opacity: .8
+    border-radius: 50px
+    background: inherit
+    +blur(blur(6px))
+    +transition(all .2s)
+  &:hover
+    &::after
+      +blur(blur(4px))
+      width: 100%
+      bottom: -5px
+      left: 0
+    &:active
+      &::after
+        +blur(blur(10px))
+
+
+// FIX For Adge and IE
+
+@supports (-ms-ime-align: auto)
+  button
+    -webkit-box-shadow: 0 20px 20px -15px rgba(127, 0, 255, .8)
+    box-shadow: 0 20px 20px -15px rgba(127, 0, 255, .8)
+  button::after, button:hover::after, button:active::after
+    display: none
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+  button
+    background: -webkit-gradient(linear, left top, right top, from(#7f00ff), to(#e100ff))
+    background: linear-gradient(to right, #7f00ff, #e100ff)
+    -webkit-box-shadow: 0 20px 20px -15px rgba(127, 0, 255, .8)
+    box-shadow: 0 20px 20px -15px rgba(127, 0, 255, .8)
+    border-collapse: separate
+  button::after, button:hover::after, button:active::after
+    display: none
+
+
+// Gist + img
+.gist
+  position: fixed
+  bottom: 0
+  right: 0
+  background: #282828
+  color: white
+  padding: .5em
+  border-radius: 4px
+  margin: 10px
+  font-size: .75em
+  font-family: 'Roboto', sans-serif
+
+.shadow-image
+  position: fixed
+  bottom: 0
+  right: 0
+  background: #282828
+  color: white
+  padding: .5em
+  border-radius: 4px
+  margin: 10px 80px 10px
+  font-size: .75em
+  font-family: 'Roboto', sans-serif
+
 .overlay button {
       /*background: #3498db;*/
       background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
@@ -17,161 +135,6 @@
       margin-top: 200px;
     }
 
-@import "compass/css3";
-@import url('https://fonts.googleapis.com/css?family=Inconsolata');
-
-html, body {
-  background-color: #e7e7ea;
-  font-family: "Inconsolata", monospace;
-  font-size: 1.13em;
-  font-weight: bold;
-}
-
-@mixin transition-all {
-  -webkit-transition: all 200ms ease-in-out;
-  -moz-transition: all 200ms ease-in-out;
-  -o-transition: all 200ms ease-in-out;
-	transition: all 200ms ease-in-out;
-}
-
-$slate-color: rgb(16,24,50);
-$blue-color: #00bcdd;
-$pink-color: #ff00ff;
-
-.container {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-.button {
-  color: $slate-color;
-  cursor: pointer;
-  display: inline-block;
-  letter-spacing: 0.075em;
-  padding: .8em 1em;
-  margin: auto 2em;
-  position: relative;
-  align-self: center;
-  text-transform: uppercase;
-  border: 3px $blue-color solid;
-  border-image: linear-gradient(45deg, $blue-color 0%, $pink-color 100%);
-  border-image-slice: 1 1 0 0;
-  z-index: 1;
-  box-shadow: -0.5em .5em transparentize($slate-color,1);
-  transform-origin: left bottom;
-  @include transition-all;
-  
-  &:before,
-  &:after {
-    border: 3px $blue-color solid;
-    content: '';
-    display: block;
-    position: absolute;
-    z-index: -1;
-  }
-  
-  /*SIDE*/
-  &:before {
-    border-image: linear-gradient(45deg, $blue-color 0%, adjust-hue($blue-color,10%) 100%);
-    border-image-slice: 1 1 0 1;
-    left: -0.59em; top: .15em;
-    width: .31em;
-    height: 100%;
-    transform: skewY(-45deg);
-  }
-  
-  // BOTTOM
-  &:after {
-    border-image: linear-gradient(45deg, $blue-color 0%, $pink-color 100%);
-    border-image-slice: 1 1 1 0;
-    bottom: -0.61em; right: 0.16em;
-    width: 100%;
-    height: .31em;
-    transform: skewX(-45deg);
-  }
-  
-  /*Shadow*/
-  &:hover {
-    //border-image-slice: 1;
-    background-color: white;
-    background-size: 90%;
-    transform: translate(0.5em,-0.5em);
-    box-shadow: -1em 1em .15em transparentize($slate-color,.9);
-    // box-shadow: -1em 1em 1em transparentize($blue-color,.9), -1em 1.9em 1.9em transparentize($slate-color,.9), 0em .38em .38em transparentize($slate-color,.9), 0em .76em .76em transparentize($slate-color,.9), 0em 1.52em 1.52em transparentize($slate-color,.9);
-    
-    
-    &:before {
-      @include background-image(linear-gradient(45deg, $blue-color 0%, adjust-hue($blue-color,10%) 100%));
-      height: calc(100% - .13em);
-      border-image-slice: 1;
-    }
-    
-    &:after {
-      @include background-image(linear-gradient(45deg, $blue-color 0%, $pink-color 100%));
-      width: calc(100% - .13em);
-      border-image-slice: 1;
-    }
-  }
-}
-
-.cta {
-  background-color: $blue-color; /*Old browsers*/
-  @include background-image(linear-gradient(45deg, $blue-color 0%, $pink-color 100%));
-  border-image: linear-gradient(45deg, lighten($blue-color,20%) 0%, lighten($pink-color,20%) 100%);
-  border-image-slice: 1;
-  color: white;
-  
-  &:before {
-    border-image-slice: 1;
-    @include background-image(linear-gradient(45deg, $blue-color 0%, adjust-hue($blue-color,10%) 100%));
-    left: -0.75em;
-    top: .15em;
-  }
-  
-  &:after {
-    border-image-slice: 1;
-    @include background-image(linear-gradient(45deg, $blue-color 0%, $pink-color 100%));
-    bottom: -0.75em;
-    right: .15em;
-  }
-  
-  &:hover {
-    background: white;
-    border-image: linear-gradient(45deg, $blue-color 0%, $pink-color 100%);
-    border-image-slice: 1;
-    color: $slate-color;
-    
-    &:before {
-      height: 100%;
-    }
-    &:after {
-      width: 100%;
-    }
-  }
-}
-
-.bg {
-  background: none;
-  border: 3px solid $slate-color;
-  color: $slate-color;
-  
-  &:before,
-  &:after {
-    background: $slate-color;
-    border: 3px solid $slate-color;
-  }
-  
-  &:hover {
-    border-image: none;
-    
-    &:before,
-    &:after {
-      background: $slate-color;
-    }
-  }
-}
 
 .overlay footer {
       background: #3498db;
