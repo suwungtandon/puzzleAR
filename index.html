@@ -32,10 +32,13 @@
             <p class="description">Slogan will be here at this place.</p>
           </div>
             <p class="txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis ex dicta maiores libero minus obcaecati iste optio, eius labore repellendus.</p>
-          <button class="btn">START &rarr;</button>
+          <button class="btn">
+            <div>
+              <button> START &rarr;</button>
             
+            <a href="#modal-closed" class="link-2"></a>
         </div>
-      </div>
+      
     
    <!-- add screen start
     <div class="overlay">
@@ -165,7 +168,7 @@
     <!-- add screen javascript -->
       <script>
         //const overlay = document.querySelector(".overlay");
-        const startBtn = overlay.querySelector("btn");
+        const startBtn = overlay.querySelector("button");
         console.log(startBtn);
         startBtn.addEventListener("click", function(){
           overlay.style.display = "none";    
