@@ -62,7 +62,7 @@
             <a-asset-item id="animated-asset10" src="gltf/ribs.gltf"></a-asset-item>
             <a-asset-item id="animated-asset11" src="gltf/skull.gltf"></a-asset-item>
             <a-asset-item id="animated-asset12" src="gltf/dancing_skeleton.glb"></a-asset-item>
-	    <a-asset-item id="sound" src="sound/samba_sorry.mp3" preload="auto"></a-asset-item>
+	    <audio id="sound" src="sound/samba_sorry.mp3" preload="auto"></audio>
         </a-assets>
           
       <a-marker preset="custom" type="pattern" url="pattern/right_foot.patt">
@@ -170,11 +170,11 @@
               position="0 0 0"
               id="animated-model2"
               gltf-model="#animated-asset12" animation-mixer
-	      sound="src:#sound" autoplay="false"
+	      sound="src:#sound" autoplay="true"
               scale="15 15 15">
           </a-entity>
         <a-entity gltf-model="#animated-asset12" animation-mixer></a-entity>
-	<a-entity sound="src:#sound" autoplay="false"></a-entity>
+	<a-entity sound="src:#sound" autoplay="true"></a-entity>
       </a-marker>
 
       <a-entity camera></a-entity>
