@@ -195,8 +195,8 @@
       <script>
 	AFRAME.registerComponent('soundhandler', {
 	    tick: function () {
-		   var entity = document.querySelector('sound');
-		 if (document.querySelector('animated-model2').object3D.visible == true) {
+		   var entity = document.querySelector('#animated-asset12');
+		 if (document.querySelector('#animated-model2').object3D.visible == true) {
 		    entity.components.sound.playSound();
 		} else {
 		    entity.components.sound.pauseSound();
