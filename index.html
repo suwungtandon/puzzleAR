@@ -5,7 +5,17 @@
     <title>ScicARds</title>
       <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script> 
       <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+      <script>
+        window.onload = function(){    
+          setTimeout(function(){
+            var resizeEvent = window.document.createEvent('UIEvents'); 
+            resizeEvent.initUIEvent('resize', true, false, window, 0); 
+            window.dispatchEvent(resizeEvent);
+          }, 3000);
+        };	
+	    </script>	
   </head>
+  
   <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
   
   <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -156,7 +166,7 @@
           <a-entity
               position="0 0 0"
               id="animated-model2"
-              gltf-model="#animated-asset12"
+              gltf-model="#animated-asset12" animation-mixer
               scale="10 10 10">
           </a-entity>
         <a-entity gltf-model="#animated-asset12" animation-mixer></a-entity>
