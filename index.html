@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>ScicARds</title>
       	<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script> 
       
-	  <!-- tambahan library nggo ngeload animasi balungan njoget -->
+	<!-- tambahan library nggo ngeload animasi balungan njoget -->
       	<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 	<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
-      	
-	  <!-- add fix animation dancing_skeleton with js >.< -->	
-
-	</head>
+	<!-- add end fix animation dancing_skeleton with js >.< -->	
+ 
+	<!-- add splashscreen start -->
+	<script>
+	window.onload = function(){    
+		setTimeout(function(){
+			var resizeEvent = window.document.createEvent('UIEvents'); 
+			resizeEvent.initUIEvent('resize', true, false, window, 0); 
+			window.dispatchEvent(resizeEvent);
+		}, 3000);
+	};	
+	</script>
+    	<!-- end of splashscreen -->
+</head>
 	 
   <body style='margin : 0px; overflow: hidden;'>
-        
-   <!-- add screen start -->
-    
-    
-    <!-- end of screen -->
     
     <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
         <a-assets>
@@ -165,7 +170,7 @@
       <a-entity camera></a-entity>
     </a-scene>
 
-    <!-- add splash screen javascript -->
+    <!-- add splash screen javascript
       <script>
         const overlay = document.querySelector(".overlay");
     	const startBtn = overlay.querySelector("button");
@@ -174,7 +179,7 @@
       	overlay.style.display = "none";    
     	});
       </script>
-    <!-- end of .js -->
+    end of .js -->
 	  
     <!-- add sound query select javascript -->
       <!-- <script>
@@ -192,5 +197,4 @@
       </script>-->  
 	  
   </body>
-
 </html>
