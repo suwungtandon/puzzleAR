@@ -42,7 +42,7 @@
 	    <a-asset-item id="animated-asset13" src="gltf/usm.glb"></a-asset-item>
         </a-assets>
 	<a-assets>
-            <audio id="sound" src="./sound/samba_soryy.mp3" preload="auto"></audio>
+            <a-assets-audio id="sound" src="./sound/samba_soryy.mp3" preload="auto"></a-asset-audio>
         </a-assets>
           
       <a-marker preset="custom" type="pattern" url="pattern/right_foot.patt">
@@ -151,23 +151,13 @@
               position="0 0 0"
               id="animated-model2"
               gltf-model="#animated-asset12"
-	      
+	      sound="src: #sound" autoplay="false"
               scale="15 15 15" animation-mixer soundhandler>
           </a-entity>
-        <!--<a-entity gltf-model="#animated-asset12" animation-mixer></a-entity>
-	  <a-entity sound="src: #sound" autoplay="false"></a-entity>-->
+	      
+     		<a-entity sound="src: #sound" autoplay="false"></a-entity>
       </a-marker>
 	<a-entity sound="src: #sound" autoplay="false"></a-entity>
-	    
-	    <!-- add usm logo-->
-      <a-marker preset="custom" type="pattern" url="pattern/usm-patt.patt">
-          <a-entity
-              position="0 0 0"
-              id="animated-model11"
-              gltf-model="#animated-asset13"
-              scale="1.75 1.75 1.75">
-          </a-entity>
-      </a-marker>
 	    
       <a-entity camera></a-entity>
     </a-scene>
