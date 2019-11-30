@@ -40,6 +40,7 @@
             <a-asset-item id="animated-asset11" src="gltf/skull.gltf"></a-asset-item>
             <a-asset-item id="animated-asset12" src="gltf/dancing_skeleton.glb"></a-asset-item>
 	    <a-asset-item id="animated-asset13" src="gltf/usm.glb"></a-asset-item>
+		<a-assets-audio id="sound" src="sound/samba_soryy.mp3" preload="auto"></a-asset-audio>
         </a-assets>
 	<a-assets>
             <a-assets-audio id="sound" src="./sound/samba_soryy.mp3" preload="auto"></a-asset-audio>
@@ -146,7 +147,7 @@
       </a-marker>
       
       <!-- add dancing skeleton -->
-      <a-marker preset="custom" type="pattern" url="pattern/dancing_skeleton.patt">
+      <a-marker preset="custom" type="pattern" url="pattern/dancing_skeleton.patt" soundhandler>
           <a-entity
               position="0 0 0"
               id="animated-model2"
@@ -183,10 +184,9 @@
 		} else {
 		    entity.components.sound.pauseSound();
 		}
-
 	     }
 	});
-      </script>  
+	</script>  
 	  
   </body>
 </html>
