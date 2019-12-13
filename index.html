@@ -10,7 +10,8 @@
       	<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 	<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
 	<!--<script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js"></script>-->
-	<!-- add end fix animation dancing_skeleton with js >.< -->	
+	<!-- add end fix animation dancing_skeleton with js >.< -->
+	<link rel="stylesheet" href="./css/style.css">
  	<!-- add splashscreen start -->
 	<script>
 	window.onload = function(){    
@@ -25,7 +26,11 @@
 </head>
 		 
   <body style='margin : 0px; overflow: hidden;'>
-    
+    <div class="overlay">
+       <div id="button">
+        <button>START</button>
+      </div>
+    </div> 
     <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
         <a-assets>
             <a-asset-item id="animated-asset" src="gltf/right_foot.gltf"></a-asset-item>
@@ -174,7 +179,7 @@
       <a-entity camera></a-entity>
     </a-scene>
 
-    <!-- add splash screen javascript
+    <!-- add splash screen javascript-->
       <script>
         const overlay = document.querySelector(".overlay");
     	const startBtn = overlay.querySelector("button");
@@ -183,7 +188,7 @@
       	overlay.style.display = "none";    
     	});
       </script>
-    end of .js -->
+    
 	  
     <!-- add sound query select javascript
       <script>
