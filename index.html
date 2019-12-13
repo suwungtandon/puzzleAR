@@ -26,12 +26,13 @@
 </head>
 		 
   <body style='margin : 0px; overflow: hidden;'>
-    <div class="overlay">
-       <div id="button">
-        <button>START</button>
-      </div>
-    </div> 
+    
     <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
+	<div class="overlay">
+       	  <div id="button">
+            <button>START</button>
+          </div>
+        </div> 
         <a-assets>
             <a-asset-item id="animated-asset" src="gltf/right_foot.gltf"></a-asset-item>
             <a-asset-item id="animated-asset2" src="gltf/left_foot.gltf"></a-asset-item>
