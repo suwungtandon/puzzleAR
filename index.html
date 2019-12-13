@@ -167,7 +167,7 @@
               scale="15 15 15" animation-mixer soundhandler>
           </a-entity>
 	      
-     		<!--<a-entity sound="src: #sound" autoplay="false"></a-entity>-->
+     		<a-entity sound="src: #sound" autoplay="false"></a-entity>
       </a-marker>
 	<a-sound="src: #sound"></a-sound>
 	    
@@ -190,7 +190,7 @@
 	AFRAME.registerComponent('soundhandler', {
 	    tick: function () {
 		   var entity = document.querySelector('[sound]');
-		 if (document.querySelector('a-marker').object3D.visible == true) {
+		 if (document.querySelector('#animated-asset12').object3D.visible == true) {
 		    entity.components.sound.playSound();
 		} else {
 		    entity.components.sound.pauseSound();
