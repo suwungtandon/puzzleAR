@@ -164,22 +164,20 @@
       </a-marker>
       
       <!-- add dancing skeleton -->
-      <a-marker markerhandler id="marker12" preset="custom" type="pattern" url="pattern/dancing_skeleton.patt"  emitevents="true" cursor="rayOrigin: mouse" sound-handler>
+      <a-marker markerhandler id="animated-marker12" preset="custom" type="pattern" url="pattern/dancing_skeleton.patt"  emitevents="true" cursor="rayOrigin: mouse">
           <a-entity
               position="0 0 0"
               id="animated-model12"
               gltf-model="#animated-asset12"
-	      sound="src: #sound"
-		  sound="src: #sound" 
-		  autoplay="false"
               scale="15 15 15" animation-mixer soundhandler>
           </a-entity>
 	      
-     		<!--<a-entity sound="src: #sound" autoplay="false"></a-entity>-->
+     		<a-entity id="animated-marker12" sound="src: #sound" autoplay="false"></a-entity>
+	      
       </a-marker>
-	<!--
-	    <a-entity id="#marker12" sound="src: #sound" autoplay="false"> </a-entity>
-	    -->
+	
+	    <a-entity id="animated-marker12" sound="src: #sound" autoplay="false"> </a-entity>
+	    
       <a-entity camera></a-entity>
     </a-scene>
 
@@ -199,7 +197,7 @@
 	AFRAME.registerComponent('soundhandler', {
 	    tick: function () {
 		   var entity = document.querySelector('[sound]');
-		 if (document.querySelector('#marker12').object3D.visible == true) {
+		 if (document.querySelector('animated-marker12').object3D.visible == true) {
 		    entity.components.sound.playSound();
 		} else {
 		    entity.components.sound.pauseSound();
